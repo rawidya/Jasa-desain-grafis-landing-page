@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize Lucide Icons
-    lucide.createIcons();
 
     // Scroll Header
     const navbar = document.getElementById('navbar');
