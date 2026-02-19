@@ -1,0 +1,55 @@
+/* Base & Variables */
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg-light: #f9fafb;
+    --white: #ffffff;
+    --gray-text: #4b5563;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Nav Styles */
+nav.scrolled {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Reveal Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Custom Gradients & Shapes */
+.service-card:hover .icon-bg {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Pricing Highlight */
+.pricing-popular {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .pricing-popular {
+        transform: scale(1);
+    }
+}
