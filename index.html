@@ -31,12 +31,27 @@
       <a href="#" class="text-2xl font-bold text-blue-600">JasaVisual<span class="text-gray-400">.</span></a>
       <div class="hidden md:flex gap-8 items-center font-medium">
         <a href="#services" class="hover:text-blue-600 transition">Layanan</a>
-        <a href="#portfolio" class="hover:text-blue-600 transition">Portofolio</a>
+        <a href="#portfolio" class="hover:text-blue-600 transition">Software</a>
         <a href="#pricing" class="hover:text-blue-600 transition">Harga</a>
         <a href="https://wa.me/6285854463307"
           class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">Chat Saya</a>
       </div>
-      <button class="md:hidden text-blue-600"><i data-lucide="menu"></i></button>
+      <!-- Mobile Menu Toggle -->
+      <button id="mobile-menu-btn" class="md:hidden text-blue-600 focus:outline-none">
+        <i data-lucide="menu" id="menu-icon"></i>
+      </button>
+    </div>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+      class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center justify-center gap-8 text-2xl font-bold pt-20">
+      <a href="#services" class="mobile-link hover:text-blue-600 transition">Layanan</a>
+      <a href="#portfolio" class="mobile-link hover:text-blue-600 transition">Software</a>
+      <a href="#pricing" class="mobile-link hover:text-blue-600 transition">Harga</a>
+      <a href="https://wa.me/6285854463307"
+        class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition">Chat Saya</a>
+      <button id="close-menu-btn" class="absolute top-6 right-6 text-blue-600">
+        <i data-lucide="x"></i>
+      </button>
     </div>
   </nav>
 
