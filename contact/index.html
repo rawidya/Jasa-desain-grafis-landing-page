@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Kami | JasaVisual</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><path d='M30 30L50 70L70 30' stroke='white' stroke-width='12' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/style.css">
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-['Poppins'] min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="py-6 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="../index.html" class="text-2xl font-bold text-blue-600">JasaVisual<span
+                    class="text-gray-400">.</span></a>
+            <a href="../index.html" class="text-gray-600 hover:text-blue-600 transition font-medium"> Kembali ke
+                Beranda</a>
+        </div>
+    </nav>
+
+    <!-- Contact Form Section -->
+    <main class="flex-grow flex items-center justify-center px-6 py-12">
+        <div class="max-w-xl w-full bg-white rounded-3xl shadow-2xl p-8 md:p-12 glass reveal">
+            <div class="text-center mb-10">
+                <h1 class="text-3xl font-bold mb-2">Pilih Paket & Hubungi</h1>
+                <p class="text-gray-500">Isi data di bawah ini, lalu akan langsung dihubungkan ke WhatsApp saya.</p>
+            </div>
+
+            <form id="contactForm" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-semibold mb-2 text-gray-700">Nama Lengkap</label>
+                    <input type="text" id="name" required
+                        class="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition"
+                        placeholder="Siapa nama kamu?">
+                </div>
+
+                <div>
+                    <label for="package" class="block text-sm font-semibold mb-2 text-gray-700">Paket yang
+                        Dipilih</label>
+                    <select id="package" required
+                        class="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition appearance-none bg-white">
+                        <option value="">-- Pilih Paket --</option>
+                        <option value="Eceran">Paket Eceran</option>
+                        <option value="Paket Konten">Paket Konten</option>
+                        <option value="Custom Project">Custom Project</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="message" class="block text-sm font-semibold mb-2 text-gray-700">Pesan Tambahan
+                        (Opsional)</label>
+                    <textarea id="message" rows="4"
+                        class="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition"
+                        placeholder="Mau tanya apa atau ada request khusus?"></textarea>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-700 hover:shadow-lg transition-all transform hover:-translate-y-1">
+                    Kirim ke WhatsApp
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-white border-t border-gray-100 text-gray-400 text-center">
+        <p>&copy; 2026 JasaVisual. Semua untuk visual terbaik kamu.</p>
+    </footer>
+
+    <script>
+        // 1. Get query parameter for package
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedPackage = urlParams.get('package');
+        if (selectedPackage) {
+            document.getElementById('package').value = selectedPackage;
+        }
+
+        // 2. Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const pkg = document.getElementById('package').value;
+            const msg = document.getElementById('message').value;
+
+            const whatsappNumber = "6285854463307";
+            const text = `Halo JasaVisual! Saya *${name}*.\n\nSaya tertarik dengan *${pkg}*.\n${msg ? `*Pesan:* ${msg}` : ''}`;
+
+            const encodedText = encodeURIComponent(text);
+            window.location.href = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+        });
+
+        // Simple scroll reveal (copying logic from main site if available)
+        window.addEventListener('load', () => {
+            document.querySelector('.reveal').classList.add('reveal-active');
+        });
+    </script>
+
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .reveal-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</body>
+
+</html>
